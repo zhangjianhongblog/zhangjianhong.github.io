@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>这几天的面试题 | zhangjianhong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、setTimeout用var 或者 let 123456789101112131415for (var i = 0; i &amp;lt; 5; i++) &amp;#123;    setTimeout(function()&amp;#123;        console.log(i);    &amp;#125;,1000)&amp;#125;console.log(i);//先输出5，然后隔一秒输出其他的五个5for (le">
+<meta property="og:type" content="article">
+<meta property="og:title" content="这几天的面试题">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/面试题/index.html">
+<meta property="og:site_name" content="zhangjianhong">
+<meta property="og:description" content="1、setTimeout用var 或者 let 123456789101112131415for (var i = 0; i &amp;lt; 5; i++) &amp;#123;    setTimeout(function()&amp;#123;        console.log(i);    &amp;#125;,1000)&amp;#125;console.log(i);//先输出5，然后隔一秒输出其他的五个5for (le">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-27T15:57:13.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="这几天的面试题">
+<meta name="twitter:description" content="1、setTimeout用var 或者 let 123456789101112131415for (var i = 0; i &amp;lt; 5; i++) &amp;#123;    setTimeout(function()&amp;#123;        console.log(i);    &amp;#125;,1000)&amp;#125;console.log(i);//先输出5，然后隔一秒输出其他的五个5for (le">
+  
+    <link rel="alternate" href="/atom.xml" title="zhangjianhong" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhangjianhong</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/面试题/" class="article-date">
+  <time datetime="2018-05-27T15:43:18.103Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      这几天的面试题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>1、setTimeout用var 或者 let</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br><span class="line"><span class="comment">//先输出5，然后隔一秒输出其他的五个5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br><span class="line"><span class="comment">//最下面的i先报错，然后隔一秒输出其他的五个0,1,2,3,4</span></span><br></pre></td></tr></table></figure>
+<p><strong>2、display:flex</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 容器的属性：</span></span><br><span class="line"><span class="comment">* flex-direction:</span></span><br><span class="line"><span class="comment">* flex-wrap:</span></span><br><span class="line"><span class="comment">* flex-flow:该属性是flex-direction和flex-wrap的简写形式</span></span><br><span class="line"><span class="comment">* justify-content:该属性定义了子元素在容器中的对齐方式</span></span><br><span class="line"><span class="comment">* align-items:该属性，垂直居中子元素</span></span><br><span class="line"><span class="comment">* align-content:属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 项目（子元素）的属性：</span></span><br><span class="line"><span class="comment">* order：定义项目的排列顺序，数值越小，排列越靠前，默认值为0；</span></span><br><span class="line"><span class="comment">* flex-grow:项目的放大比例，默认值是0；</span></span><br><span class="line"><span class="comment">* flex-shrink:属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的</span></span><br><span class="line"><span class="comment">* flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</span></span><br><span class="line"><span class="comment">* flex-basis:属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</span></span><br><span class="line"><span class="comment">* flex:该属性是：flex-grow, flex-shrink 和 flex-basis的简写</span></span><br><span class="line"><span class="comment">* align-self:属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>3、前端SEO优化</strong></p>
+<p>1、优化html标签（不要什么都用div，尽量合理的使用ul、ol、table等）html语义化<br>2、meta描述（可定义关键词、网站描述等）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt; meta name=<span class="string">"keywords"</span> content=<span class="string">"关键词1，关键词2"</span>/&gt;</span><br><span class="line">&lt; meta name=<span class="string">"description"</span> content=<span class="string">"描述1，描述2"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>3、前景图片<code>&lt;img/&gt;</code>添加alt属性、这个比较重要，有很多适用场景<br>4、前景图片<code>&lt;img/&gt;</code>要定义大小、不然会造成页面重新渲染，影响加载速度<br>5、内链采用绝对路径，减少服务器的响应时间<br>6、重要的内容HTML代码放在前面：搜索引擎抓取HTML 的顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取。<br>7、重要的内容不要用js输出，爬虫不会执行js获取内容。<br>8、尽量少用iframe，搜索引擎不会抓取iframe中的内容。<br>9、删除console<br>10、删除debugger<br>11、图片雪碧图</p>
+<p><strong>4、vuex</strong></p>
+<p>1、state负责存储整个应用的状态数据，要注意在入口文件main.js注入store对象，就可以在根组件下的子组件使用this.$store.state获取状态了。</p>
+<p>2、mutation里面写着改变状态数据的方法（一定要写在这里），mutation是同步事件要注意，里面的方法不能写异步的，组件中触发一个mutation的方法store.commit(mutationName)。</p>
+<p>3、action也是一个改变状态数据的事件，但不同的是action改变状态是通过调用mutation来实现的，注意action是个异步事件。直接触发action就使用this.$store.dispatch(actionName)。</p>
+<p>actions和mutations的区别</p>
+<p>1.Actions 提交的是 mutations，而不是直接变更状态。也就是说，actions会通过mutations，让mutations帮他提交数据的变更。<br>2.Action 可以包含任意异步操作。ajax、setTimeout、setInterval不在话下</p>
+<p>各个类型的 API各司其职，mutation 只管存，你给我（dispatch）我就存；action只管中间处理，处理完我就给你，你怎么存我不管；Getter 我只管取，我不改的。　action放在了 methods 里面，说明我们应该把它当成函数来用（讲道理，钩子函数也应该可以的） mutation是写在store里面的，这说明，它就是个半成品，中间量，我们不应该在外面去操作它。getter写在了 computed 里面，这说明虽然 getter我们写的是函数，但是我们应该把它当成计算属性来用。</p>
+<p><strong>5、移动端网页布局</strong></p>
+<p>1 简单一点的页面，一般高度直接设置成固定值，宽度一般撑满整个屏幕。</p>
+<p>2 稍复杂一些的是利用百分比设置元素的大小来进行适配，或者利用flex等css去设置一些需要定制的宽度。</p>
+<p>3 再复杂一些的响应式页面，需要利用css3的media query属性来进行适配，大致思路是根据屏幕不同大小，来设置对应的css样式。</p>
+<p><strong>6、bootstrap实现原理</strong></p>
+<p>媒体查询（css3的media query属性）</p>
+<p><strong>7、路由懒加载</strong></p>
+<p>结合 Vue 的异步组件和 Webpack 的代码分割功能，轻松实现路由组件的懒加载。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tvProgram = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'@/page/tvProgram'</span>], resolve);  </span><br><span class="line"><span class="keyword">const</span> game = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'@/page/game'</span>], resolve);  </span><br><span class="line"><span class="keyword">const</span> gameitem = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'@/page/gameItem'</span>], resolve);</span><br></pre></td></tr></table></figure></p>
+<p><strong>8、vue的router中的‘/’和‘#’区别</strong></p>
+<p><strong>9、require和import</strong><br>在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。前者用于服务器，后者用于浏览器。ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案。</p>
+<p>ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CommonJS模块</span></span><br><span class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> stat = _fs.stat;</span><br><span class="line"><span class="keyword">let</span> exists = _fs.exists;</span><br><span class="line"><span class="keyword">let</span> readfile = _fs.readfile;</span><br></pre></td></tr></table></figure>
+<p>上面代码的实质是整体加载fs模块（即加载fs的所有方法），生成一个对象（_fs），然后再从这个对象上面读取 3 个方法。这种加载称为“运行时加载”，因为只有运行时才能得到这个对象，导致完全没办法在编译时做“静态优化”。</p>
+<p>ES6 模块不是对象，而是通过export命令显式指定输出的代码，再通过import命令输入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6模块</span></span><br><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</span><br></pre></td></tr></table></figure>
+<p>上面代码的实质是从fs模块加载 3 个方法，其他方法不加载。这种加载称为“编译时加载”或者静态加载，即 ES6 可以在编译时就完成模块加载，效率要比 CommonJS 模块的加载方式高。当然，这也导致了没法引用 ES6 模块本身，因为它不是对象。</p>
+<p>由于 ES6 模块是编译时加载，使得静态分析成为可能。有了它，就能进一步拓宽 JavaScript 的语法，比如引入宏（macro）和类型检验（type system）这些只能靠静态分析实现的功能。</p>
+<p><strong>10、AMD和CMD区别</strong><br>AMD 是 RequireJS<br>CMD 是 SeaJS<br>相同之处：RequireJS 和 Sea.js 都是模块加载器，倡导模块化开发理念，核心价值是让 JavaScript 的模块化开发变得简单自然。<br>不同之处:   1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.2. CMD 推崇依赖就近，AMD 推崇依赖前置。</p>
+<p><strong>11、ES6的extends支持多重继承吗？</strong><br>并不支持，ES6的class其实本质还是基于原型链继承的语法糖。<br>不过可以通过mixin的方式，将多个类混合成一个类，从而来模拟多继承。<br>熟悉 JavaScript 的同学应该对 mixin 模式并不陌生。我们说 JavaScript / ES5 的继承模型是基于单一原型链的继承模型，通常情况下，在 JavaScript 实践中完全用原型链来实现继承式的代码复用，是远远不能满足需求的。因此实战中，我们的代码抽象基本上都是采用混合的模式，既有原型继承，也有 mixin 组合。</p>
+<p><strong>12、HTML页面加载和解析流程</strong></p>
+<p>1、用户输入网址（假设是个html页面，并且是第一次访问），浏览器向服务器发出请求，服务器返回html文件；<br>2、浏览器开始载入html代码，发现＜head＞标签内有一个＜link＞标签引用外部CSS文件；<br>3、浏览器又发出CSS文件的请求，服务器返回这个CSS文件；<br>4、浏览器继续载入html中＜body＞部分的代码，并且CSS文件已经拿到手了，可以开始渲染页面了；<br>5、浏览器在代码中发现一个＜img＞标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续渲染后面的代码；<br>6、服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码；<br>7、浏览器发现了一个包含一行Javascript代码的＜script＞标签，赶快运行它；<br>8、Javascript脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个＜div＞ （style.display=”none”）。杯具啊，突然就少了这么一个元素，浏览器不得不重新渲染这部分代码；<br>9、终于等到了＜/html＞的到来，浏览器泪流满面……<br>10、等等，还没完，用户点了一下界面中的“换肤”按钮，Javascript让浏览器换了一下＜link＞标签的CSS路径；<br>11、浏览器召集了在座的各位＜div＞＜span＞＜ul＞＜li＞们，“大伙儿收拾收拾行李，咱得重新来过……”，浏览器向服务器请求了新的CSS文件，重新渲染页面。</p>
+<p><strong>13、vue如何定义全局组件，然后用vue.use()引用</strong><br><a href="https://blog.csdn.net/tank_in_the_street/article/details/73135410" target="_blank" rel="noopener">https://blog.csdn.net/tank_in_the_street/article/details/73135410</a></p>
+<p><a href="https://www.cnblogs.com/yesyes/p/6658611.html" target="_blank" rel="noopener">https://www.cnblogs.com/yesyes/p/6658611.html</a></p>
+<ol>
+<li>Vue.extend()是Vue构造器的扩展，调用Vue.extend()创建的是一个组件构造器，而不是一个具体的组件实例。 </li>
+<li>Vue.extend()构造器有一个选项对象，选项对象的template属性用于定义组件要渲染的HTML。 </li>
+<li>使用Vue.component()注册组件时，需要提供2个参数，第1个参数时组件的标签，第2个参数是组件构造器。 </li>
+<li>Vue.component()方法内部会调用组件构造器，创建一个组件实例。 </li>
+<li>组件应该挂载到某个Vue实例下，否则它不会生效。</li>
+</ol>
+<p><strong>14、axios的</strong><br><a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">https://www.kancloud.cn/yunye/axios/234845</a></p>
+<p><strong>15、router</strong><br>这其实需要你理解什么是hashhistory和bowserhistory<br>带#的hash其实就是根据window.location.hash里的字符串来处理路由关系，页面刷新肯定是没问题的<br>但是不带#的bowserhistory只有斜杠/相当于访问目录，当前会话肯定没问题，但是刷新页面肯定会挂，放弃hash#的bowserhistory是需要服务端支持的，要做映射的。</p>
+<p>还有就是#是不会导致页面访问错误的啊。。。hash是url标准里的一环。。</p>
+<p>映射关系例如你访问<a href="http://abc/#a" target="_blank" rel="noopener">http://abc/#a</a> 这其实就是访问abc的首页下的a路由<br>如果你访问<a href="http://abc/a" target="_blank" rel="noopener">http://abc/a</a> 如果没做服务器映射的话，相当于你要找根目录下的a文件，然而这个目录其实是前端定义的路由，服务器上是没有a这个文件的。这时候就需要服务端把abc/映射到abc/index.html 之后的就是查询的值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/27/面试题/" data-id="cjhozwdsm0003uwzb47g68dmt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/27/jQuery的优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/27/面试题/">这几天的面试题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/jQuery的优化/">jQuery优化</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Git和SVN/">Git 和SVN的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Markdown语法/">Markdown语法入门</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/基于github和hexo搭建博客/">基于Github和Hexo搭建自己的博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 jhzhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

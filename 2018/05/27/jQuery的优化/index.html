@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jQuery优化 | zhangjianhong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在项目中，为了使项目更加流畅，需要优化jQuery jQuery代码性能优化的方法 1、总是使用#id去寻找element.  在jQuery中最快的选择器是ID选择器 $(&amp;#39;#someid&amp;#39;). 这是因为它直接映射为JavaScript的getElementById()方法。  2、在Classes前面使用Tags  在jQuery中第二快的选择器就是Tag选择器 $(&amp;#39;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery优化">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/jQuery的优化/index.html">
+<meta property="og:site_name" content="zhangjianhong">
+<meta property="og:description" content="在项目中，为了使项目更加流畅，需要优化jQuery jQuery代码性能优化的方法 1、总是使用#id去寻找element.  在jQuery中最快的选择器是ID选择器 $(&amp;#39;#someid&amp;#39;). 这是因为它直接映射为JavaScript的getElementById()方法。  2、在Classes前面使用Tags  在jQuery中第二快的选择器就是Tag选择器 $(&amp;#39;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-27T15:29:47.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery优化">
+<meta name="twitter:description" content="在项目中，为了使项目更加流畅，需要优化jQuery jQuery代码性能优化的方法 1、总是使用#id去寻找element.  在jQuery中最快的选择器是ID选择器 $(&amp;#39;#someid&amp;#39;). 这是因为它直接映射为JavaScript的getElementById()方法。  2、在Classes前面使用Tags  在jQuery中第二快的选择器就是Tag选择器 $(&amp;#39;">
+  
+    <link rel="alternate" href="/atom.xml" title="zhangjianhong" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhangjianhong</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jQuery的优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/jQuery的优化/" class="article-date">
+  <time datetime="2018-05-27T15:05:38.323Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery优化
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在项目中，为了使项目更加流畅，需要优化<strong>jQuery</strong></p>
+<h2 id="jQuery代码性能优化的方法"><a href="#jQuery代码性能优化的方法" class="headerlink" title="jQuery代码性能优化的方法"></a>jQuery代码性能优化的方法</h2><ul>
+<li>1、总是使用#id去寻找element.</li>
+</ul>
+<p>在jQuery中最快的选择器是ID选择器 <code>$(&#39;#someid&#39;)</code>. 这是因为它直接映射为JavaScript的getElementById()方法。</p>
+<ul>
+<li>2、在Classes前面使用Tags</li>
+</ul>
+<p>在jQuery中第二快的选择器就是Tag选择器 <code>$(&#39;head&#39;)</code>. 而这是因为它直接映射到JavaScript的getElementsByTagName()方法。</p>
+<ul>
+<li>3、缓存jQuery对象</li>
+</ul>
+<p>养成保存jQuery对象到一个变量上的习惯。不要这样做：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#traffic_light input.on).bind('</span>click<span class="string">', function()&#123;...&#125;); </span></span><br><span class="line"><span class="string"></span></span><br><span class="line">$('#traffic_light input.on).css('border', '3px dashed yellow');</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#traffic_light input.on).css('</span>background-color<span class="string">', '</span>orange<span class="string">');</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line">$('#traffic_light input.on).fadeIn('slow');</span><br></pre></td></tr></table></figure>
+<p>取而代之，首现保存jQuery变量到一个本地变量后，再继续你的操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $active_light = $(<span class="string">'#traffic_light input.on'</span>);</span><br><span class="line">  </span><br><span class="line">$active_light.bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;);</span><br><span class="line">  </span><br><span class="line">$active_light.css(<span class="string">'border'</span>, <span class="string">'3px dashed yellow'</span>);</span><br><span class="line">  </span><br><span class="line">$active_light.css(<span class="string">'background-color'</span>, <span class="string">'orange'</span>);</span><br><span class="line">  </span><br><span class="line">$active_light.fadeIn(<span class="string">'slow'</span>);</span><br></pre></td></tr></table></figure>
+<p><code>提示：使用$前辍表示我们的本地变量是一个jQuery包集。记住，不要在你的应该程序里出现一次以上的jQuery重复的选择操作。 额外提示：延迟存储jQuery对象结果。</code></p>
+<p>如果你想在你的程序的其它地方使用jQuery结果对象，或者你的函数要执行多次，要把它缓存在一个全局范围的对象里。通过定义一个全局容器保存jQuery结果对象，就可以在其它的函数里引用它。</p>
+<ul>
+<li>4、更好的利用链</li>
+</ul>
+<p>前面的例子也可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $active_light = $(<span class="string">'#traffic_light input.on'</span>);</span><br><span class="line"> </span><br><span class="line">$active_light.bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;)</span><br><span class="line"> </span><br><span class="line"> .css(<span class="string">'border'</span>, <span class="string">'3px dashed yellow'</span>)</span><br><span class="line"> </span><br><span class="line"> .css(<span class="string">'background-color'</span>, <span class="string">'orange'</span>)</span><br><span class="line"> </span><br><span class="line"> .fadeIn(<span class="string">'slow'</span>);</span><br></pre></td></tr></table></figure>
+<p>这样可以让我们写更少的代码，使JavaScript更轻量。</p>
+<ul>
+<li>5、使用子查询</li>
+</ul>
+<p>jQuery允许我们在一个包集上附加其它的选择器。因为我们已经在本地变量里保存了父对象这样会减少以后在选择器上的性能开销。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $traffic_light = $(<span class="string">'#traffic_light'</span>), </span><br><span class="line"> </span><br><span class="line">$active_light = $traffic_light.find(<span class="string">'input.on'</span>), </span><br><span class="line"> </span><br><span class="line">$inactive_lights = $traffic_light.find(<span class="string">'input.off'</span>);</span><br></pre></td></tr></table></figure>
+<p><code>提示：可以用逗号隔开一次定义多个本地变量，这样可以节省一些字节。</code></p>
+<ul>
+<li>6、限制直接对DOM操作</li>
+</ul>
+<p>DOM操作的基本做法是在内存中创建DOM结构，然后再更新DOM结构。这不是jQuery最好的做法，但对JavaScript来讲是高效的。直接操作DOM结构性能是低下的。 例如，如果你需要动态创建一列元素，不要这样做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> top_100_list = [...], <span class="comment">// assume this has 100 unique strings </span></span><br><span class="line"> </span><br><span class="line">$mylist = $(<span class="string">'#mylist'</span>); <span class="comment">// jQuery selects our &lt;ul&gt; element</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, l=top_100_list.length; i&lt;l; i++)&#123; </span><br><span class="line"> </span><br><span class="line"> $mylist.append(<span class="string">'&lt;li&gt;'</span> + top_100_list[i] + <span class="string">'&lt;/li&gt;'</span>);</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>取而代之，我们希望在插入DOM结构之前先在一个字符串里创建一套元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> top_100_list = [...], <span class="comment">// assume this has 100 unique strings </span></span><br><span class="line"> </span><br><span class="line">$mylist = $(<span class="string">'#mylist'</span>), <span class="comment">// jQuery selects our &lt;ul&gt; element </span></span><br><span class="line"> </span><br><span class="line">top_100_li = <span class="string">""</span>; <span class="comment">// This will store our list items</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, l=top_100_list.length; i&lt;l; i++)&#123;</span><br><span class="line"> </span><br><span class="line"> top_100_li += <span class="string">'&lt;li&gt;'</span> + top_100_list[i] + <span class="string">'&lt;/li&gt;'</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$mylist.html(top_100_li);</span><br></pre></td></tr></table></figure>
+<p>更快的做法，在插入DOM结构之前我们应该总是在一个父节点里包含许多元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> top_100_list = [...], <span class="comment">// assume this has 100 unique strings </span></span><br><span class="line"> </span><br><span class="line">$mylist = $(<span class="string">'#mylist'</span>), <span class="comment">// jQuery selects our &lt;ul&gt; element </span></span><br><span class="line"> </span><br><span class="line">top_100_ul = <span class="string">'&lt;ul id="#mylist"&gt;'</span>; <span class="comment">// This will store our entire unordered list</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, l=top_100_list.length; i&lt;l; i++)&#123;</span><br><span class="line"> </span><br><span class="line"> top_100_ul += <span class="string">'&lt;li&gt;'</span> + top_100_list[i] + <span class="string">'&lt;/li&gt;'</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">top_100_ul += <span class="string">'&lt;/ul&gt;'</span>; <span class="comment">// Close our unordered list</span></span><br><span class="line"> </span><br><span class="line">$mylist.replaceWith(top_100_ul);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>7、事件委托（又名：冒泡事件）</p>
+</li>
+<li><p>8、采用jQuery的内部函数data()来存储状态</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#head'</span>).data(<span class="string">'name'</span>, <span class="string">'value'</span>);</span><br><span class="line"><span class="comment">// 之后在你的应用中调用:</span></span><br><span class="line">$(<span class="string">'#head'</span>).data(<span class="string">'name'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>9、适当使用原生JS</li>
+</ul>
+<p>创建jQuery对象会带来一些开销。所以，如果比较注重性能的话，尽可能使用原生的javascript。在某些方面可能会更容易理解和写更少的代码。</p>
+<ul>
+<li>10、慎用.live()方法（应该说尽量不要使用）</li>
+</ul>
+<p>这是jQuery1.3.1版本之后增加的方法，这个方法的功能就是为 新增的DOM元素 动态绑定事件。但对于效率来说，这个方法比较占用资源。所以请尽量不要使用它。</p>
+<ul>
+<li>11、推迟到 $(window).load</li>
+</ul>
+<p>jQuery对于开发者来说有一个很诱人的东西, 可以把任何东西挂到$(document).ready下。尽管$(document).rady 确实很有用，它可以在页面渲染时，其它元素还没下载完成就执行。如果你发现你的页面一直是载入中的状态，很有可能就是$(document).ready函数引起的。你可以通过将jQuery函数绑定到$(window).load 事件的方法来减少页面载入时的cpu使用率。它会在所有的html(包括iframe)被下载完成后执行。一些特效的功能，例如拖放, 视觉特效和动画, 预载入隐藏图像等等，都是适合这种技术的场合。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/27/jQuery的优化/" data-id="cjhozwdsk0002uwzbfzq5df81" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/27/面试题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          这几天的面试题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/27/Git和SVN/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git 和SVN的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/27/面试题/">这几天的面试题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/jQuery的优化/">jQuery优化</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Git和SVN/">Git 和SVN的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Markdown语法/">Markdown语法入门</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/基于github和hexo搭建博客/">基于Github和Hexo搭建自己的博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 jhzhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

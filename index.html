@@ -62,6 +62,238 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-面试题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/面试题/" class="article-date">
+  <time datetime="2018-05-27T15:43:18.103Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/27/面试题/">这几天的面试题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>1、setTimeout用var 或者 let</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br><span class="line"><span class="comment">//先输出5，然后隔一秒输出其他的五个5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br><span class="line"><span class="comment">//最下面的i先报错，然后隔一秒输出其他的五个0,1,2,3,4</span></span><br></pre></td></tr></table></figure>
+<p><strong>2、display:flex</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 容器的属性：</span></span><br><span class="line"><span class="comment">* flex-direction:</span></span><br><span class="line"><span class="comment">* flex-wrap:</span></span><br><span class="line"><span class="comment">* flex-flow:该属性是flex-direction和flex-wrap的简写形式</span></span><br><span class="line"><span class="comment">* justify-content:该属性定义了子元素在容器中的对齐方式</span></span><br><span class="line"><span class="comment">* align-items:该属性，垂直居中子元素</span></span><br><span class="line"><span class="comment">* align-content:属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 项目（子元素）的属性：</span></span><br><span class="line"><span class="comment">* order：定义项目的排列顺序，数值越小，排列越靠前，默认值为0；</span></span><br><span class="line"><span class="comment">* flex-grow:项目的放大比例，默认值是0；</span></span><br><span class="line"><span class="comment">* flex-shrink:属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的</span></span><br><span class="line"><span class="comment">* flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</span></span><br><span class="line"><span class="comment">* flex-basis:属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</span></span><br><span class="line"><span class="comment">* flex:该属性是：flex-grow, flex-shrink 和 flex-basis的简写</span></span><br><span class="line"><span class="comment">* align-self:属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>3、前端SEO优化</strong></p>
+<p>1、优化html标签（不要什么都用div，尽量合理的使用ul、ol、table等）html语义化<br>2、meta描述（可定义关键词、网站描述等）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt; meta name=<span class="string">"keywords"</span> content=<span class="string">"关键词1，关键词2"</span>/&gt;</span><br><span class="line">&lt; meta name=<span class="string">"description"</span> content=<span class="string">"描述1，描述2"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>3、前景图片<code>&lt;img/&gt;</code>添加alt属性、这个比较重要，有很多适用场景<br>4、前景图片<code>&lt;img/&gt;</code>要定义大小、不然会造成页面重新渲染，影响加载速度<br>5、内链采用绝对路径，减少服务器的响应时间<br>6、重要的内容HTML代码放在前面：搜索引擎抓取HTML 的顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取。<br>7、重要的内容不要用js输出，爬虫不会执行js获取内容。<br>8、尽量少用iframe，搜索引擎不会抓取iframe中的内容。<br>9、删除console<br>10、删除debugger<br>11、图片雪碧图</p>
+<p><strong>4、vuex</strong></p>
+<p>1、state负责存储整个应用的状态数据，要注意在入口文件main.js注入store对象，就可以在根组件下的子组件使用this.$store.state获取状态了。</p>
+<p>2、mutation里面写着改变状态数据的方法（一定要写在这里），mutation是同步事件要注意，里面的方法不能写异步的，组件中触发一个mutation的方法store.commit(mutationName)。</p>
+<p>3、action也是一个改变状态数据的事件，但不同的是action改变状态是通过调用mutation来实现的，注意action是个异步事件。直接触发action就使用this.$store.dispatch(actionName)。</p>
+<p>actions和mutations的区别</p>
+<p>1.Actions 提交的是 mutations，而不是直接变更状态。也就是说，actions会通过mutations，让mutations帮他提交数据的变更。<br>2.Action 可以包含任意异步操作。ajax、setTimeout、setInterval不在话下</p>
+<p>各个类型的 API各司其职，mutation 只管存，你给我（dispatch）我就存；action只管中间处理，处理完我就给你，你怎么存我不管；Getter 我只管取，我不改的。　action放在了 methods 里面，说明我们应该把它当成函数来用（讲道理，钩子函数也应该可以的） mutation是写在store里面的，这说明，它就是个半成品，中间量，我们不应该在外面去操作它。getter写在了 computed 里面，这说明虽然 getter我们写的是函数，但是我们应该把它当成计算属性来用。</p>
+<p><strong>5、移动端网页布局</strong></p>
+<p>1 简单一点的页面，一般高度直接设置成固定值，宽度一般撑满整个屏幕。</p>
+<p>2 稍复杂一些的是利用百分比设置元素的大小来进行适配，或者利用flex等css去设置一些需要定制的宽度。</p>
+<p>3 再复杂一些的响应式页面，需要利用css3的media query属性来进行适配，大致思路是根据屏幕不同大小，来设置对应的css样式。</p>
+<p><strong>6、bootstrap实现原理</strong></p>
+<p>媒体查询（css3的media query属性）</p>
+<p><strong>7、路由懒加载</strong></p>
+<p>结合 Vue 的异步组件和 Webpack 的代码分割功能，轻松实现路由组件的懒加载。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tvProgram = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'@/page/tvProgram'</span>], resolve);  </span><br><span class="line"><span class="keyword">const</span> game = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'@/page/game'</span>], resolve);  </span><br><span class="line"><span class="keyword">const</span> gameitem = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'@/page/gameItem'</span>], resolve);</span><br></pre></td></tr></table></figure></p>
+<p><strong>8、vue的router中的‘/’和‘#’区别</strong></p>
+<p><strong>9、require和import</strong><br>在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。前者用于服务器，后者用于浏览器。ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案。</p>
+<p>ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CommonJS模块</span></span><br><span class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> stat = _fs.stat;</span><br><span class="line"><span class="keyword">let</span> exists = _fs.exists;</span><br><span class="line"><span class="keyword">let</span> readfile = _fs.readfile;</span><br></pre></td></tr></table></figure>
+<p>上面代码的实质是整体加载fs模块（即加载fs的所有方法），生成一个对象（_fs），然后再从这个对象上面读取 3 个方法。这种加载称为“运行时加载”，因为只有运行时才能得到这个对象，导致完全没办法在编译时做“静态优化”。</p>
+<p>ES6 模块不是对象，而是通过export命令显式指定输出的代码，再通过import命令输入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6模块</span></span><br><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</span><br></pre></td></tr></table></figure>
+<p>上面代码的实质是从fs模块加载 3 个方法，其他方法不加载。这种加载称为“编译时加载”或者静态加载，即 ES6 可以在编译时就完成模块加载，效率要比 CommonJS 模块的加载方式高。当然，这也导致了没法引用 ES6 模块本身，因为它不是对象。</p>
+<p>由于 ES6 模块是编译时加载，使得静态分析成为可能。有了它，就能进一步拓宽 JavaScript 的语法，比如引入宏（macro）和类型检验（type system）这些只能靠静态分析实现的功能。</p>
+<p><strong>10、AMD和CMD区别</strong><br>AMD 是 RequireJS<br>CMD 是 SeaJS<br>相同之处：RequireJS 和 Sea.js 都是模块加载器，倡导模块化开发理念，核心价值是让 JavaScript 的模块化开发变得简单自然。<br>不同之处:   1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.2. CMD 推崇依赖就近，AMD 推崇依赖前置。</p>
+<p><strong>11、ES6的extends支持多重继承吗？</strong><br>并不支持，ES6的class其实本质还是基于原型链继承的语法糖。<br>不过可以通过mixin的方式，将多个类混合成一个类，从而来模拟多继承。<br>熟悉 JavaScript 的同学应该对 mixin 模式并不陌生。我们说 JavaScript / ES5 的继承模型是基于单一原型链的继承模型，通常情况下，在 JavaScript 实践中完全用原型链来实现继承式的代码复用，是远远不能满足需求的。因此实战中，我们的代码抽象基本上都是采用混合的模式，既有原型继承，也有 mixin 组合。</p>
+<p><strong>12、HTML页面加载和解析流程</strong></p>
+<p>1、用户输入网址（假设是个html页面，并且是第一次访问），浏览器向服务器发出请求，服务器返回html文件；<br>2、浏览器开始载入html代码，发现＜head＞标签内有一个＜link＞标签引用外部CSS文件；<br>3、浏览器又发出CSS文件的请求，服务器返回这个CSS文件；<br>4、浏览器继续载入html中＜body＞部分的代码，并且CSS文件已经拿到手了，可以开始渲染页面了；<br>5、浏览器在代码中发现一个＜img＞标签引用了一张图片，向服务器发出请求。此时浏览器不会等到图片下载完，而是继续渲染后面的代码；<br>6、服务器返回图片文件，由于图片占用了一定面积，影响了后面段落的排布，因此浏览器需要回过头来重新渲染这部分代码；<br>7、浏览器发现了一个包含一行Javascript代码的＜script＞标签，赶快运行它；<br>8、Javascript脚本执行了这条语句，它命令浏览器隐藏掉代码中的某个＜div＞ （style.display=”none”）。杯具啊，突然就少了这么一个元素，浏览器不得不重新渲染这部分代码；<br>9、终于等到了＜/html＞的到来，浏览器泪流满面……<br>10、等等，还没完，用户点了一下界面中的“换肤”按钮，Javascript让浏览器换了一下＜link＞标签的CSS路径；<br>11、浏览器召集了在座的各位＜div＞＜span＞＜ul＞＜li＞们，“大伙儿收拾收拾行李，咱得重新来过……”，浏览器向服务器请求了新的CSS文件，重新渲染页面。</p>
+<p><strong>13、vue如何定义全局组件，然后用vue.use()引用</strong><br><a href="https://blog.csdn.net/tank_in_the_street/article/details/73135410" target="_blank" rel="noopener">https://blog.csdn.net/tank_in_the_street/article/details/73135410</a></p>
+<p><a href="https://www.cnblogs.com/yesyes/p/6658611.html" target="_blank" rel="noopener">https://www.cnblogs.com/yesyes/p/6658611.html</a></p>
+<ol>
+<li>Vue.extend()是Vue构造器的扩展，调用Vue.extend()创建的是一个组件构造器，而不是一个具体的组件实例。 </li>
+<li>Vue.extend()构造器有一个选项对象，选项对象的template属性用于定义组件要渲染的HTML。 </li>
+<li>使用Vue.component()注册组件时，需要提供2个参数，第1个参数时组件的标签，第2个参数是组件构造器。 </li>
+<li>Vue.component()方法内部会调用组件构造器，创建一个组件实例。 </li>
+<li>组件应该挂载到某个Vue实例下，否则它不会生效。</li>
+</ol>
+<p><strong>14、axios的</strong><br><a href="https://www.kancloud.cn/yunye/axios/234845" target="_blank" rel="noopener">https://www.kancloud.cn/yunye/axios/234845</a></p>
+<p><strong>15、router</strong><br>这其实需要你理解什么是hashhistory和bowserhistory<br>带#的hash其实就是根据window.location.hash里的字符串来处理路由关系，页面刷新肯定是没问题的<br>但是不带#的bowserhistory只有斜杠/相当于访问目录，当前会话肯定没问题，但是刷新页面肯定会挂，放弃hash#的bowserhistory是需要服务端支持的，要做映射的。</p>
+<p>还有就是#是不会导致页面访问错误的啊。。。hash是url标准里的一环。。</p>
+<p>映射关系例如你访问<a href="http://abc/#a" target="_blank" rel="noopener">http://abc/#a</a> 这其实就是访问abc的首页下的a路由<br>如果你访问<a href="http://abc/a" target="_blank" rel="noopener">http://abc/a</a> 如果没做服务器映射的话，相当于你要找根目录下的a文件，然而这个目录其实是前端定义的路由，服务器上是没有a这个文件的。这时候就需要服务端把abc/映射到abc/index.html 之后的就是查询的值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/27/面试题/" data-id="cjhozwdsm0003uwzb47g68dmt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jQuery的优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/jQuery的优化/" class="article-date">
+  <time datetime="2018-05-27T15:05:38.323Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/27/jQuery的优化/">jQuery优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在项目中，为了使项目更加流畅，需要优化<strong>jQuery</strong></p>
+<h2 id="jQuery代码性能优化的方法"><a href="#jQuery代码性能优化的方法" class="headerlink" title="jQuery代码性能优化的方法"></a>jQuery代码性能优化的方法</h2><ul>
+<li>1、总是使用#id去寻找element.</li>
+</ul>
+<p>在jQuery中最快的选择器是ID选择器 <code>$(&#39;#someid&#39;)</code>. 这是因为它直接映射为JavaScript的getElementById()方法。</p>
+<ul>
+<li>2、在Classes前面使用Tags</li>
+</ul>
+<p>在jQuery中第二快的选择器就是Tag选择器 <code>$(&#39;head&#39;)</code>. 而这是因为它直接映射到JavaScript的getElementsByTagName()方法。</p>
+<ul>
+<li>3、缓存jQuery对象</li>
+</ul>
+<p>养成保存jQuery对象到一个变量上的习惯。不要这样做：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#traffic_light input.on).bind('</span>click<span class="string">', function()&#123;...&#125;); </span></span><br><span class="line"><span class="string"></span></span><br><span class="line">$('#traffic_light input.on).css('border', '3px dashed yellow');</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#traffic_light input.on).css('</span>background-color<span class="string">', '</span>orange<span class="string">');</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line">$('#traffic_light input.on).fadeIn('slow');</span><br></pre></td></tr></table></figure>
+<p>取而代之，首现保存jQuery变量到一个本地变量后，再继续你的操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $active_light = $(<span class="string">'#traffic_light input.on'</span>);</span><br><span class="line">  </span><br><span class="line">$active_light.bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;);</span><br><span class="line">  </span><br><span class="line">$active_light.css(<span class="string">'border'</span>, <span class="string">'3px dashed yellow'</span>);</span><br><span class="line">  </span><br><span class="line">$active_light.css(<span class="string">'background-color'</span>, <span class="string">'orange'</span>);</span><br><span class="line">  </span><br><span class="line">$active_light.fadeIn(<span class="string">'slow'</span>);</span><br></pre></td></tr></table></figure>
+<p><code>提示：使用$前辍表示我们的本地变量是一个jQuery包集。记住，不要在你的应该程序里出现一次以上的jQuery重复的选择操作。 额外提示：延迟存储jQuery对象结果。</code></p>
+<p>如果你想在你的程序的其它地方使用jQuery结果对象，或者你的函数要执行多次，要把它缓存在一个全局范围的对象里。通过定义一个全局容器保存jQuery结果对象，就可以在其它的函数里引用它。</p>
+<ul>
+<li>4、更好的利用链</li>
+</ul>
+<p>前面的例子也可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $active_light = $(<span class="string">'#traffic_light input.on'</span>);</span><br><span class="line"> </span><br><span class="line">$active_light.bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...&#125;)</span><br><span class="line"> </span><br><span class="line"> .css(<span class="string">'border'</span>, <span class="string">'3px dashed yellow'</span>)</span><br><span class="line"> </span><br><span class="line"> .css(<span class="string">'background-color'</span>, <span class="string">'orange'</span>)</span><br><span class="line"> </span><br><span class="line"> .fadeIn(<span class="string">'slow'</span>);</span><br></pre></td></tr></table></figure>
+<p>这样可以让我们写更少的代码，使JavaScript更轻量。</p>
+<ul>
+<li>5、使用子查询</li>
+</ul>
+<p>jQuery允许我们在一个包集上附加其它的选择器。因为我们已经在本地变量里保存了父对象这样会减少以后在选择器上的性能开销。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $traffic_light = $(<span class="string">'#traffic_light'</span>), </span><br><span class="line"> </span><br><span class="line">$active_light = $traffic_light.find(<span class="string">'input.on'</span>), </span><br><span class="line"> </span><br><span class="line">$inactive_lights = $traffic_light.find(<span class="string">'input.off'</span>);</span><br></pre></td></tr></table></figure>
+<p><code>提示：可以用逗号隔开一次定义多个本地变量，这样可以节省一些字节。</code></p>
+<ul>
+<li>6、限制直接对DOM操作</li>
+</ul>
+<p>DOM操作的基本做法是在内存中创建DOM结构，然后再更新DOM结构。这不是jQuery最好的做法，但对JavaScript来讲是高效的。直接操作DOM结构性能是低下的。 例如，如果你需要动态创建一列元素，不要这样做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> top_100_list = [...], <span class="comment">// assume this has 100 unique strings </span></span><br><span class="line"> </span><br><span class="line">$mylist = $(<span class="string">'#mylist'</span>); <span class="comment">// jQuery selects our &lt;ul&gt; element</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, l=top_100_list.length; i&lt;l; i++)&#123; </span><br><span class="line"> </span><br><span class="line"> $mylist.append(<span class="string">'&lt;li&gt;'</span> + top_100_list[i] + <span class="string">'&lt;/li&gt;'</span>);</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>取而代之，我们希望在插入DOM结构之前先在一个字符串里创建一套元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> top_100_list = [...], <span class="comment">// assume this has 100 unique strings </span></span><br><span class="line"> </span><br><span class="line">$mylist = $(<span class="string">'#mylist'</span>), <span class="comment">// jQuery selects our &lt;ul&gt; element </span></span><br><span class="line"> </span><br><span class="line">top_100_li = <span class="string">""</span>; <span class="comment">// This will store our list items</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, l=top_100_list.length; i&lt;l; i++)&#123;</span><br><span class="line"> </span><br><span class="line"> top_100_li += <span class="string">'&lt;li&gt;'</span> + top_100_list[i] + <span class="string">'&lt;/li&gt;'</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$mylist.html(top_100_li);</span><br></pre></td></tr></table></figure>
+<p>更快的做法，在插入DOM结构之前我们应该总是在一个父节点里包含许多元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> top_100_list = [...], <span class="comment">// assume this has 100 unique strings </span></span><br><span class="line"> </span><br><span class="line">$mylist = $(<span class="string">'#mylist'</span>), <span class="comment">// jQuery selects our &lt;ul&gt; element </span></span><br><span class="line"> </span><br><span class="line">top_100_ul = <span class="string">'&lt;ul id="#mylist"&gt;'</span>; <span class="comment">// This will store our entire unordered list</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>, l=top_100_list.length; i&lt;l; i++)&#123;</span><br><span class="line"> </span><br><span class="line"> top_100_ul += <span class="string">'&lt;li&gt;'</span> + top_100_list[i] + <span class="string">'&lt;/li&gt;'</span>;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">top_100_ul += <span class="string">'&lt;/ul&gt;'</span>; <span class="comment">// Close our unordered list</span></span><br><span class="line"> </span><br><span class="line">$mylist.replaceWith(top_100_ul);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>7、事件委托（又名：冒泡事件）</p>
+</li>
+<li><p>8、采用jQuery的内部函数data()来存储状态</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#head'</span>).data(<span class="string">'name'</span>, <span class="string">'value'</span>);</span><br><span class="line"><span class="comment">// 之后在你的应用中调用:</span></span><br><span class="line">$(<span class="string">'#head'</span>).data(<span class="string">'name'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>9、适当使用原生JS</li>
+</ul>
+<p>创建jQuery对象会带来一些开销。所以，如果比较注重性能的话，尽可能使用原生的javascript。在某些方面可能会更容易理解和写更少的代码。</p>
+<ul>
+<li>10、慎用.live()方法（应该说尽量不要使用）</li>
+</ul>
+<p>这是jQuery1.3.1版本之后增加的方法，这个方法的功能就是为 新增的DOM元素 动态绑定事件。但对于效率来说，这个方法比较占用资源。所以请尽量不要使用它。</p>
+<ul>
+<li>11、推迟到 $(window).load</li>
+</ul>
+<p>jQuery对于开发者来说有一个很诱人的东西, 可以把任何东西挂到$(document).ready下。尽管$(document).rady 确实很有用，它可以在页面渲染时，其它元素还没下载完成就执行。如果你发现你的页面一直是载入中的状态，很有可能就是$(document).ready函数引起的。你可以通过将jQuery函数绑定到$(window).load 事件的方法来减少页面载入时的cpu使用率。它会在所有的html(包括iframe)被下载完成后执行。一些特效的功能，例如拖放, 视觉特效和动画, 预载入隐藏图像等等，都是适合这种技术的场合。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/27/jQuery的优化/" data-id="cjhozwdsk0002uwzbfzq5df81" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Git和SVN" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/Git和SVN/" class="article-date">
+  <time datetime="2018-05-27T14:43:16.289Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/27/Git和SVN/">Git 和SVN的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li><strong>分布式</strong> 版本控制</li>
+</ul>
+<p>git是一个开源的<strong>分布式</strong>版本控制系统,用以快速高效的处理项目从很小到非常大的项目的版本控制的所有事情。另外官网上的介绍还有,git性能卓越,超过甚至颠覆一些其他的产品如cvs,perfamce等,git有非常方便的本地分支,多个工作流等。</p>
+<h2 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h2><ul>
+<li><strong>集中式</strong> 版本控制<br>版本库是集中放在中央服务器的。集中式版本控制系统是必须联网才能工作，如果在局域网还可以，带宽够大，速度够快，如果在互联网下，如果网速慢的话，就纳闷了。</li>
+</ul>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>所谓分布式和集中式的区别主要就是版本的信息保存的位置不同。集中式的版本控制是把所有的版本信息数据都保存到服务器上，也就是说，当服务器完蛋了，我们就无法获取版本信息，那么就无法进行版本回退等版本的操作。而分布式的版本控制是把版本信息数据保存在本地或远程服务器上，所以就算服务器崩完蛋了，都可以进行版本控制的操作。</p>
+<ol>
+<li>git的数据备份比svn更安全，git是每个历史版本都存储完整的文件,便于恢复,svn是存储差异文件,历史版本不可恢复；</li>
+<li>一般情况下，git速度更快,效率更高；</li>
+<li>svn创建分支比较麻烦，而git的分支创建非常简单，git有着更优雅的分支和合并实现。</li>
+<li>git可离线完成大部分操作,svn则不能。</li>
+<li>git有着更强的撤销修改和修改历史版本的能力。</li>
+<li>旧版的svn会在每个文件夹下建立一个.svn，git只会在根目录下拥有一个.git。</li>
+<li>工作流程有所不同。<br>SVN的流程：每次先从服务器上更新代码，修改完成后，上传到服务器。<br>git的流程：每次提交到服务器之前，也需要从服务器上更新代码，每次修改或者新增代码后，提交到本地，当有需要时，提交到服务器。意思就是git本地多了一个可以跟服务器一样的信息保存库。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/27/Git和SVN/" data-id="cjhozwdsb0000uwzbjnb6d4je" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/27/Markdown语法/" class="article-date">
@@ -147,7 +379,7 @@ console.log(3);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/Markdown语法/" data-id="cjhoo1jln0001x0zbg5pefp8r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/Markdown语法/" data-id="cjhor2h6q0002vgzbmh58l1bc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,11 +412,30 @@ console.log(3);
     <div class="article-entry" itemprop="articleBody">
       
         <p>博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>申请Github账号：<br>首先我们要有一个属于自己的github账号，登录进去后我们需要去<code>Create a new repository</code>，填写<code>Repository name</code>。这里的名称我们需要注意下，填写固定格式：<code>userName.github.io</code>，这里的<code>userName</code>是指我们注册github时的账号名称。填写完成后点击<code>Create Repository</code>就可以了。</li>
+<li>安装最新版的node </li>
+<li>安装git</li>
+<li>所有的都安装成功后<code>npm install -g hexo-cli</code></li>
+</ul>
+<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>新建一个文件夹，进入该文件夹中，在空白处右击打开<code>Git Bash Here</code>分别输入一下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">$ hexo install</span><br></pre></td></tr></table></figure></p>
+<h2 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h2><p>输入以下命令配置用户名和邮箱：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;userName&quot;</span><br><span class="line">$ git config --global user.email &quot;userEmail@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="密钥生成"><a href="#密钥生成" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>输入以下命令生成密钥，命令中<code>-C</code>,<code>C</code>是大写的，还有密钥的默认位置是：<code>C:/Users/用户名/.ssh/:</code></p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;userEmail@gmail.com&quot;
+</code></pre><h2 id="配置密钥"><a href="#配置密钥" class="headerlink" title="配置密钥"></a>配置密钥</h2><p>打开<code>github</code>设置界面，选择<code>SSH and GPG key</code>创建一个<code>New SSH key</code>。打开生成的密钥文件将<code>id_rsa.pub</code>里内容复制到<code>Key</code>中，点击<code>Add SSh key</code>即可。</p>
+<h2 id="本地查看"><a href="#本地查看" class="headerlink" title="本地查看"></a>本地查看</h2><p>分别输入以下命令后会出现<code>INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code>这句话。此时我们就可以在本机查看博客了。默认是<code>http://localhost:4000</code>。 <code>Ctrl+c</code>结束服务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="上传GitHub"><a href="#上传GitHub" class="headerlink" title="上传GitHub"></a>上传GitHub</h2><p>首先修改文件<code>_config.yml</code>中的<code>deploy</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type:  git</span><br><span class="line">  repo:  git@github.com:smallmarker/smallmarker.github.io.git</span><br><span class="line">  branch:  master</span><br></pre></td></tr></table></figure>
+<p>然后在<code>Git Bash</code>中分别输入：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>如果此时报<code>ERROR Deployer not found:git</code>错误信息，这是因为还需要安装个东西，在<code>Git Bash</code>中输入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>等待安装成功后，在分别输入上面两个命令就好了。这时我们就可以查看自己的网址了如：<code>https://userName.github.io/</code></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/基于github和hexo搭建博客/" data-id="cjhoo1jlv0004x0zbiuxnb7x6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/基于github和hexo搭建博客/" data-id="cjhor2h6s0003vgzb5jm38p1n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +542,7 @@ console.log(3);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/vue-cli搭建的详细介绍/" data-id="cjhoo1jlt0003x0zb698xqml6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/vue-cli搭建的详细介绍/" data-id="cjhor2h6u0004vgzbv5pdrgbq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,7 +579,7 @@ console.log(3);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/cookies/" data-id="cjhoo1jle0000x0zbp73ovjel" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/cookies/" data-id="cjhor2h6d0000vgzb10s3vnwe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,9 +589,9 @@ console.log(3);
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jQuery的$.fn.extend和$.extend" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/27/hello-world/" class="article-date">
+    <a href="/2018/05/27/jQuery的$.fn.extend和$.extend/" class="article-date">
   <time datetime="2018-05-27T08:52:43.644Z" itemprop="datePublished">2018-05-27</time>
 </a>
     
@@ -352,7 +603,7 @@ console.log(3);
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/27/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/05/27/jQuery的$.fn.extend和$.extend/">jQuery的$.fn.extend和$.extend区别</a>
     </h1>
   
 
@@ -360,20 +611,21 @@ console.log(3);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="fn-extend"><a href="#fn-extend" class="headerlink" title="$.fn.extend"></a>$.fn.extend</h2><p>$.fn.extend() 函数为jQuery扩展一个或多个实例属性和方法(主要用于扩展方法)。</p>
+<p><code>提示：</code> jQuery.fn是jQuery的原型对象，其extend()方法用于为jQuery的<code>原型</code>添加新的属性和方法。这些方法可以在jQuery实例对象上调用。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.fn.extend( object ); <span class="comment">// Object类型 指定的对象，用来合并到jQuery的原型对象上。</span></span><br></pre></td></tr></table></figure>
+<h2 id="extend"><a href="#extend" class="headerlink" title="$.extend"></a>$.extend</h2><p>jQuery.extend() 函数用于将一个或多个对象的内容合并到目标对象。</p>
+<p><code>注意：</code></p>
+<ol>
+<li>如果只为$.extend()指定了一个参数，则意味着参数target被省略。此时，target就是jQuery对象本身。通过这种方式，我们可以为全局对象jQuery添加新的函数。</li>
+<li>如果多个对象具有相同的属性，则后者会覆盖前者的属性值。</li>
+</ol>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//语法</span></span><br><span class="line">$.extend( target [, object1 ] [, objectN ] );</span><br><span class="line"><span class="comment">//指示是否深度合并</span></span><br><span class="line">$.extend( [deep ], target, object1 [, objectN ] );</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 警告: 不支持第一个参数传递 false 。</span></span><br><span class="line"><span class="comment"> * deep:可选。 Boolean类型 指示是否深度合并对象，默认为false。如果该值为true，且多个对象的某个同名属性也都是对象，则该"属性对象"的属性也将进行合并。</span></span><br><span class="line"><span class="comment"> * target：Object类型 目标对象，其他对象的成员属性将被附加到该对象上。</span></span><br><span class="line"><span class="comment"> * object1： 可选。 Object类型 第一个被合并的对象。</span></span><br><span class="line"><span class="comment"> * objectN： 可选。 Object类型 第N个被合并的对象。</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/hello-world/" data-id="cjhoo1jlr0002x0zbzf35uoxw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/jQuery的$.fn.extend和$.extend/" data-id="cjhozwdsh0001uwzbkw1agtj2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,23 +666,23 @@ console.log(3);
       <ul>
         
           <li>
+            <a href="/2018/05/27/面试题/">这几天的面试题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/jQuery的优化/">jQuery优化</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Git和SVN/">Git 和SVN的区别</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/27/Markdown语法/">Markdown语法入门</a>
           </li>
         
           <li>
             <a href="/2018/05/27/基于github和hexo搭建博客/">基于Github和Hexo搭建自己的博客</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/27/vue-cli搭建的详细介绍/">vue-cli文件详细信息</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/27/cookies/">cookies封装</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/27/hello-world/">Hello World</a>
           </li>
         
       </ul>

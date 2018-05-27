@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jQuery的$.fn.extend和$.extend区别 | zhangjianhong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="$.fn.extend$.fn.extend() 函数为jQuery扩展一个或多个实例属性和方法(主要用于扩展方法)。 提示： jQuery.fn是jQuery的原型对象，其extend()方法用于为jQuery的原型添加新的属性和方法。这些方法可以在jQuery实例对象上调用。 语法1$.fn.extend( object ); // Object类型 指定的对象，用来合并到jQuery的原型对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery的$.fn.extend和$.extend区别">
+<meta property="og:url" content="http://yoursite.com/2018/05/27/jQuery的$.fn.extend和$.extend/index.html">
+<meta property="og:site_name" content="zhangjianhong">
+<meta property="og:description" content="$.fn.extend$.fn.extend() 函数为jQuery扩展一个或多个实例属性和方法(主要用于扩展方法)。 提示： jQuery.fn是jQuery的原型对象，其extend()方法用于为jQuery的原型添加新的属性和方法。这些方法可以在jQuery实例对象上调用。 语法1$.fn.extend( object ); // Object类型 指定的对象，用来合并到jQuery的原型对">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-27T15:42:06.015Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery的$.fn.extend和$.extend区别">
+<meta name="twitter:description" content="$.fn.extend$.fn.extend() 函数为jQuery扩展一个或多个实例属性和方法(主要用于扩展方法)。 提示： jQuery.fn是jQuery的原型对象，其extend()方法用于为jQuery的原型添加新的属性和方法。这些方法可以在jQuery实例对象上调用。 语法1$.fn.extend( object ); // Object类型 指定的对象，用来合并到jQuery的原型对">
+  
+    <link rel="alternate" href="/atom.xml" title="zhangjianhong" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zhangjianhong</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jQuery的$.fn.extend和$.extend" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/jQuery的$.fn.extend和$.extend/" class="article-date">
+  <time datetime="2018-05-27T08:52:43.644Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery的$.fn.extend和$.extend区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="fn-extend"><a href="#fn-extend" class="headerlink" title="$.fn.extend"></a>$.fn.extend</h2><p>$.fn.extend() 函数为jQuery扩展一个或多个实例属性和方法(主要用于扩展方法)。</p>
+<p><code>提示：</code> jQuery.fn是jQuery的原型对象，其extend()方法用于为jQuery的<code>原型</code>添加新的属性和方法。这些方法可以在jQuery实例对象上调用。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.fn.extend( object ); <span class="comment">// Object类型 指定的对象，用来合并到jQuery的原型对象上。</span></span><br></pre></td></tr></table></figure>
+<h2 id="extend"><a href="#extend" class="headerlink" title="$.extend"></a>$.extend</h2><p>jQuery.extend() 函数用于将一个或多个对象的内容合并到目标对象。</p>
+<p><code>注意：</code></p>
+<ol>
+<li>如果只为$.extend()指定了一个参数，则意味着参数target被省略。此时，target就是jQuery对象本身。通过这种方式，我们可以为全局对象jQuery添加新的函数。</li>
+<li>如果多个对象具有相同的属性，则后者会覆盖前者的属性值。</li>
+</ol>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//语法</span></span><br><span class="line">$.extend( target [, object1 ] [, objectN ] );</span><br><span class="line"><span class="comment">//指示是否深度合并</span></span><br><span class="line">$.extend( [deep ], target, object1 [, objectN ] );</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 警告: 不支持第一个参数传递 false 。</span></span><br><span class="line"><span class="comment"> * deep:可选。 Boolean类型 指示是否深度合并对象，默认为false。如果该值为true，且多个对象的某个同名属性也都是对象，则该"属性对象"的属性也将进行合并。</span></span><br><span class="line"><span class="comment"> * target：Object类型 目标对象，其他对象的成员属性将被附加到该对象上。</span></span><br><span class="line"><span class="comment"> * object1： 可选。 Object类型 第一个被合并的对象。</span></span><br><span class="line"><span class="comment"> * objectN： 可选。 Object类型 第N个被合并的对象。</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/27/jQuery的$.fn.extend和$.extend/" data-id="cjhozwdsh0001uwzbkw1agtj2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/27/cookies/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          cookies封装
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/27/面试题/">这几天的面试题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/jQuery的优化/">jQuery优化</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Git和SVN/">Git 和SVN的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Markdown语法/">Markdown语法入门</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/基于github和hexo搭建博客/">基于Github和Hexo搭建自己的博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 jhzhang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

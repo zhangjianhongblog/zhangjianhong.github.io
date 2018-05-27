@@ -7,17 +7,17 @@
   
   <title>基于Github和Hexo搭建自己的博客 | zhangjianhong</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。 准备工作">
+  <meta name="description" content="博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。 准备工作 申请Github账号：首先我们要有一个属于自己的github账号，登录进去后我们需要去Create a new repository，填写Repository name。这里的名称我们需要注意下，填写固定格式：userName.github.io，这里的userName是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Github和Hexo搭建自己的博客">
 <meta property="og:url" content="http://yoursite.com/2018/05/27/基于github和hexo搭建博客/index.html">
 <meta property="og:site_name" content="zhangjianhong">
-<meta property="og:description" content="博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。 准备工作">
+<meta property="og:description" content="博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。 准备工作 申请Github账号：首先我们要有一个属于自己的github账号，登录进去后我们需要去Create a new repository，填写Repository name。这里的名称我们需要注意下，填写固定格式：userName.github.io，这里的userName是">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-27T09:39:45.800Z">
+<meta property="og:updated_time" content="2018-05-27T14:42:11.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Github和Hexo搭建自己的博客">
-<meta name="twitter:description" content="博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。 准备工作">
+<meta name="twitter:description" content="博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。 准备工作 申请Github账号：首先我们要有一个属于自己的github账号，登录进去后我们需要去Create a new repository，填写Repository name。这里的名称我们需要注意下，填写固定格式：userName.github.io，这里的userName是">
   
     <link rel="alternate" href="/atom.xml" title="zhangjianhong" type="application/atom+xml">
   
@@ -87,11 +87,30 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>博客就是记录自己工作和学习当中遇到的问题和自己的心得体会，在这里我简单分享一下自己搭建博客的经历，希望对你有所帮助。</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>申请Github账号：<br>首先我们要有一个属于自己的github账号，登录进去后我们需要去<code>Create a new repository</code>，填写<code>Repository name</code>。这里的名称我们需要注意下，填写固定格式：<code>userName.github.io</code>，这里的<code>userName</code>是指我们注册github时的账号名称。填写完成后点击<code>Create Repository</code>就可以了。</li>
+<li>安装最新版的node </li>
+<li>安装git</li>
+<li>所有的都安装成功后<code>npm install -g hexo-cli</code></li>
+</ul>
+<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>新建一个文件夹，进入该文件夹中，在空白处右击打开<code>Git Bash Here</code>分别输入一下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">$ hexo install</span><br></pre></td></tr></table></figure></p>
+<h2 id="Git-配置"><a href="#Git-配置" class="headerlink" title="Git 配置"></a>Git 配置</h2><p>输入以下命令配置用户名和邮箱：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;userName&quot;</span><br><span class="line">$ git config --global user.email &quot;userEmail@gmail.com&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="密钥生成"><a href="#密钥生成" class="headerlink" title="密钥生成"></a>密钥生成</h2><p>输入以下命令生成密钥，命令中<code>-C</code>,<code>C</code>是大写的，还有密钥的默认位置是：<code>C:/Users/用户名/.ssh/:</code></p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;userEmail@gmail.com&quot;
+</code></pre><h2 id="配置密钥"><a href="#配置密钥" class="headerlink" title="配置密钥"></a>配置密钥</h2><p>打开<code>github</code>设置界面，选择<code>SSH and GPG key</code>创建一个<code>New SSH key</code>。打开生成的密钥文件将<code>id_rsa.pub</code>里内容复制到<code>Key</code>中，点击<code>Add SSh key</code>即可。</p>
+<h2 id="本地查看"><a href="#本地查看" class="headerlink" title="本地查看"></a>本地查看</h2><p>分别输入以下命令后会出现<code>INFO Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code>这句话。此时我们就可以在本机查看博客了。默认是<code>http://localhost:4000</code>。 <code>Ctrl+c</code>结束服务。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<h2 id="上传GitHub"><a href="#上传GitHub" class="headerlink" title="上传GitHub"></a>上传GitHub</h2><p>首先修改文件<code>_config.yml</code>中的<code>deploy</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type:  git</span><br><span class="line">  repo:  git@github.com:smallmarker/smallmarker.github.io.git</span><br><span class="line">  branch:  master</span><br></pre></td></tr></table></figure>
+<p>然后在<code>Git Bash</code>中分别输入：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>如果此时报<code>ERROR Deployer not found:git</code>错误信息，这是因为还需要安装个东西，在<code>Git Bash</code>中输入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>等待安装成功后，在分别输入上面两个命令就好了。这时我们就可以查看自己的网址了如：<code>https://userName.github.io/</code></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/27/基于github和hexo搭建博客/" data-id="cjhoo1jlv0004x0zbiuxnb7x6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/27/基于github和hexo搭建博客/" data-id="cjhor2h6s0003vgzb5jm38p1n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -149,23 +168,23 @@
       <ul>
         
           <li>
+            <a href="/2018/05/27/面试题/">这几天的面试题</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/jQuery的优化/">jQuery优化</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/27/Git和SVN/">Git 和SVN的区别</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/27/Markdown语法/">Markdown语法入门</a>
           </li>
         
           <li>
             <a href="/2018/05/27/基于github和hexo搭建博客/">基于Github和Hexo搭建自己的博客</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/27/vue-cli搭建的详细介绍/">vue-cli文件详细信息</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/27/cookies/">cookies封装</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/27/hello-world/">Hello World</a>
           </li>
         
       </ul>
